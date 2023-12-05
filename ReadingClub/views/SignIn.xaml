@@ -1,0 +1,40 @@
+﻿<Page x:Name="SignInPage" x:Class="ReadingClub.Controllers.SignIn"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ReadingClub"
+        mc:Ignorable="d"
+        Title="SignIn" MinHeight="800" MinWidth="1500" Background="#FF263859">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <!-- First column takes half the space -->
+            <ColumnDefinition Width="*"/>
+            <!-- Second column takes the other half -->
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.Column="0" Stroke="#FF17223B" Fill="#FF17223B"/>
+        <StackPanel Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock x:Name="textOne" Text="Welcome Back!" Foreground="White" FontSize="32" FontFamily="../assets/fonts/#Poppins ExtraBold" TextAlignment="Center" FontWeight="Bold"/>
+            <TextBlock x:Name="textTwo" Text="Sign In to access your account." Foreground="White" FontSize="18" FontFamily="../assets/fonts/#Poppins Regular" TextAlignment="Center" Margin="0,20,0,0"/>
+            <Image x:Name="logo" Height="350" Width="385" Source="../assets/images/book-club-removebg-preview.png" Margin="0,20,0,0"/>
+        </StackPanel>
+        <TextBlock x:Name="textThree" Text="Copyright © 2023 - Created with ❤️ By Amira and Jamil." 
+                   Foreground="White" FontSize="10"  FontFamily="../assets/fonts/#Poppins Regular" 
+                   HorizontalAlignment="Left" VerticalAlignment="Bottom" 
+                   Margin="10,0,0,10" Grid.Column="0"/>
+
+        <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock x:Name="textFour" Text="SIGNIN" FontSize="20" Margin="0,0,0,26" FontFamily="../assets/fonts/#Poppins ExtraBold" FontWeight="Bold" Foreground="#FFFF6768" TextAlignment="Left"/>
+            <Label x:Name="emailLabel" Content="Email" FontSize="16" Margin="0,0,0,10" Foreground="White" FontFamily="../assets/fonts/#Poppins Regular" Padding="0"/>
+            <TextBox x:Name="emailInput" Padding="4,0,4,0" Width="450" Height="40" Background="#3D6B778D" BorderBrush="#3D6B778D" FontFamily="../assets/fonts/#Poppins Regular" Foreground="#7FFFFFFF" FontSize="16" VerticalContentAlignment="Center"/>
+            <Label x:Name="emailErrorLabel" FontSize="12" Foreground="#F31559" Content=""  FontFamily="../assets/fonts/#Poppins Regular" Height="26"/>
+            <Label x:Name="passwordLabel" Content="Password" FontSize="16" Margin="0,0,0,10" Foreground="White" FontFamily="../assets/fonts/#Poppins Regular" Padding="0"/>
+            <PasswordBox x:Name="passwordIput"  Padding="4,0,4,0" Width="450" Height="40" Background="#3D6B778D" BorderBrush="#3D6B778D" FontFamily="../assets/fonts/#Poppins Regular" Foreground="#7FFFFFFF" FontSize="16" VerticalContentAlignment="Center"/>
+            <Label x:Name="passwordErrorLabel" FontSize="12" Foreground="#F31559" Content=""  FontFamily="../assets/fonts/#Poppins Regular"  Margin="0,0,0,10" Height="26"/>
+            <Button x:Name="signinBtn" Content="Sign In" Margin="0,0,0,10" Width="450" Height="40" Background="#FFFF6768" Foreground="White" BorderBrush="#FFFF6768" FontFamily="../assets/fonts/#Poppins Regular" FontSize="16" OpacityMask="#FFFF6768" Cursor="Hand" Click="SignInHandler"/>
+            <TextBlock x:Name="haveNoAccount" Text="Don’t have an account ? Sign Up" Foreground="White" FontSize="16" FontFamily="../assets/fonts/#Poppins Regular" TextAlignment="Center" Cursor="Hand" MouseLeftButtonDown="GoToSignUpPage"/>
+        </StackPanel>
+
+    </Grid>
+</Page>

@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="assets\fonts\Poppins-Bold.ttf" />
+    <None Remove="assets\fonts\Poppins-Regular.ttf" />
+    <None Remove="views\book-club-removebg-preview.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="assets\fonts\Poppins-Bold.ttf" />
+    <Resource Include="assets\fonts\Poppins-Regular.ttf" />
+    <Resource Include="assets\images\book-club-removebg-preview.png" />
+  </ItemGroup>
+
+</Project>
