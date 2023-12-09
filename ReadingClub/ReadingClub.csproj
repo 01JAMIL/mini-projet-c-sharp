@@ -12,6 +12,8 @@
     <None Remove="assets\fonts\Poppins-Bold.ttf" />
     <None Remove="assets\fonts\Poppins-Regular.ttf" />
     <None Remove="views\book-club-removebg-preview.png" />
+    <None Remove="views\gn.jpg" />
+    <None Remove="views\mystery.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +24,8 @@
     <Resource Include="assets\fonts\Poppins-Bold.ttf" />
     <Resource Include="assets\fonts\Poppins-Regular.ttf" />
     <Resource Include="assets\images\book-club-removebg-preview.png" />
+    <Resource Include="assets\images\mystery.jpg" />
+    <Resource Include="assets\images\gn.jpg" />
   </ItemGroup>
 
 </Project>

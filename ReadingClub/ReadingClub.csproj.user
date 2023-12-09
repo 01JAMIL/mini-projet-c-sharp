@@ -16,8 +16,14 @@
     <Compile Update="controllers\Dashboard.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="controllers\RoomControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="views\RoomControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="views\Dashboard.xaml">
       <SubType>Designer</SubType>
     </Page>

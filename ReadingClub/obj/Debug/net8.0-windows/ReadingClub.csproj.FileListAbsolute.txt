@@ -32,3 +32,7 @@ D:\C#\MyProject\ReadingClub\ReadingClub\obj\Debug\net8.0-windows\views\MainWindo
 D:\C#\MyProject\ReadingClub\ReadingClub\obj\Debug\net8.0-windows\views\MainWindow.baml
 D:\C#\MyProject\ReadingClub\ReadingClub\obj\Debug\net8.0-windows\views\Dashboard.g.cs
 D:\C#\MyProject\ReadingClub\ReadingClub\obj\Debug\net8.0-windows\views\Dashboard.baml
+D:\C#\MyProject\ReadingClub\ReadingClub\obj\Debug\net8.0-windows\ReadingClub.sourcelink.json
+D:\C#\MyProject\ReadingClub\ReadingClub\obj\Debug\net8.0-windows\views\RoomControl.g.cs
+D:\C#\MyProject\ReadingClub\ReadingClub\obj\Debug\net8.0-windows\views\RoomControl.baml
+D:\C#\MyProject\ReadingClub\ReadingClub\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
