@@ -10,7 +10,8 @@ namespace ReadingClub.Controllers
     /// </summary>
     public partial class RoomControl : UserControl
     {
-
+        public event EventHandler NavigateButtonClicked;
+        public Room RoomData { get; set; }
         public RoomControl()
         {
             InitializeComponent();
@@ -18,6 +19,7 @@ namespace ReadingClub.Controllers
 
         public void SetRoomData(Room room)
         {
+            RoomData = room;
             roomName.Content = room.Name;
             roomDescription.Text = room.Description;
 
@@ -30,6 +32,11 @@ namespace ReadingClub.Controllers
             catch (Exception ex) { 
                 Console.WriteLine("Error loading image: " + ex.Message);
             }
+        }
+
+        private void OnNavigateButtonClicked(object sender, RoutedEventArgs e)
+        {
+            NavigateButtonClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

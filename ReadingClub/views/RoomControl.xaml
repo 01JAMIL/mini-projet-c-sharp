@@ -20,10 +20,20 @@
             Padding="0,0,0,0" 
             Width="384" 
             Height="80" 
+            TextAlignment="Justify"
             TextWrapping="Wrap" 
             TextTrimming="CharacterEllipsis"
             />
-        <Button x:Name="joinButton" Width="85" Content="Join room" FontFamily="../assets/fonts/#Poppins Regular" Padding="10,4,10,4" HorizontalAlignment="Left" Margin="10,115,0,0" VerticalAlignment="Top" Background="#FF22C55E" Foreground="White" BorderBrush="#FF22C55E" FontSize="10" Cursor="Hand"/>
+        <Button 
+            x:Name="joinButton" 
+            Width="85" 
+            Content="Join room" FontFamily="../assets/fonts/#Poppins Regular" 
+            Padding="10,4,10,4" HorizontalAlignment="Left" 
+            Margin="10,115,0,0" VerticalAlignment="Top" 
+            Background="#FF22C55E" Foreground="White" 
+            BorderBrush="#FF22C55E" FontSize="10" Cursor="Hand"
+            Click="OnNavigateButtonClicked"
+            />
 
     </Grid>
 </UserControl>
