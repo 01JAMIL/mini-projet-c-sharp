@@ -1,6 +1,7 @@
 ﻿using ReadingClub.models;
+using ReadingClub.utils.shared;
+using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 
 namespace ReadingClub.Controllers
 {
@@ -10,6 +11,8 @@ namespace ReadingClub.Controllers
     public partial class Dashboard : Page
     {
         private User loggedInUser;
+        private int layout = 1;
+        private int selectedRoomId;
         public Dashboard(User user)
         {
             InitializeComponent();
@@ -17,9 +20,7 @@ namespace ReadingClub.Controllers
 
             LoadUserData();
 
-            RoomList roomList = new RoomList();
-            roomList.RoomNavigateButtonClicked += RoomList_RoomNavigateButtonClicked;
-            outletGrid.Children.Add(roomList);
+            UpdateLayout();
         }
 
         private void LoadUserData()
@@ -32,11 +33,38 @@ namespace ReadingClub.Controllers
             }
         }
 
-        private void RoomList_RoomNavigateButtonClicked(object sender, EventArgs e)
+        private new void UpdateLayout()
         {
-            RoomDetailes newContent = new RoomDetailes();
-            outletGrid.Children.Clear();
-            outletGrid.Children.Add(newContent);
+            outletGrid.Children.Clear(); // Clear existing content
+
+            switch (layout)
+            {
+                case 1:
+                    var roomList = new RoomList();
+                    roomList.RoomNavigateButtonClicked += new EventHandler<RoomEventArgs>(NavigateToRoomDetails);
+                    outletGrid.Children.Add(roomList);
+                    break;
+
+                case 2:
+                    var roomDetails = new RoomDetailes();
+                    roomDetails.SetRoomId(selectedRoomId);
+                    roomDetails.BackButtonClicked += NavigateToRoomList;
+                    outletGrid.Children.Add(roomDetails);
+                    break;
+            }
+        }
+
+        private void NavigateToRoomDetails(object sender, RoomEventArgs e)
+        {
+            this.selectedRoomId = e.RoomId;
+            this.layout = 2;
+            UpdateLayout();
+        }
+
+        private void NavigateToRoomList(object sender, EventArgs e)
+        {
+            this.layout = 1;
+            UpdateLayout();
         }
     }
 }

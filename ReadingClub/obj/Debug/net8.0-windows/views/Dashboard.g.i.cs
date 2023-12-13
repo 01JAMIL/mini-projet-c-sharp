@@ -94,7 +94,7 @@ namespace ReadingClub.Controllers {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ReadingClub;V1.0.0.0;component/views/dashboard.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ReadingClub;component/views/dashboard.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\views\Dashboard.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

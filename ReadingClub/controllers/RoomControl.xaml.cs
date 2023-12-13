@@ -1,4 +1,5 @@
 ﻿using ReadingClub.models;
+using ReadingClub.utils.shared;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
@@ -10,7 +11,7 @@ namespace ReadingClub.Controllers
     /// </summary>
     public partial class RoomControl : UserControl
     {
-        public event EventHandler NavigateButtonClicked;
+        public event EventHandler<RoomEventArgs> NavigateButtonClicked;
         public Room RoomData { get; set; }
         public RoomControl()
         {
@@ -36,7 +37,7 @@ namespace ReadingClub.Controllers
 
         private void OnNavigateButtonClicked(object sender, RoutedEventArgs e)
         {
-            NavigateButtonClicked?.Invoke(this, EventArgs.Empty);
+            NavigateButtonClicked?.Invoke(this, new RoomEventArgs(RoomData.ID));
         }
     }
 }

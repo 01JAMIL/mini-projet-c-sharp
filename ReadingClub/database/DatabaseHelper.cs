@@ -113,6 +113,77 @@ namespace ReadingClub.database{
                 }
             }
         }
+
+        public static List<Room> GetRooms ()
+        {
+            var rooms = new List<Room>();
+            var query = "SELECT * FROM [Room]";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        var room = new Room(
+                            reader.GetInt32(reader.GetOrdinal("ID")),
+                            reader.GetString(reader.GetOrdinal("Name")),
+                            reader.GetString(reader.GetOrdinal("Description")),
+                            reader.GetString(reader.GetOrdinal("Image")),
+                            reader.GetInt32(reader.GetOrdinal("numberOfMembers")),
+                            reader.GetInt32(reader.GetOrdinal("numberOfBooks"))
+                        );
+
+                        rooms.Add(room);
+                    }
+
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+
+            return rooms;
+        }
+
+        public static Room GetRoomById (int roomID)
+        {
+            var query = "SELECT * FROM [Room] WHERE Id = @Id";
+            using (var conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                using (var command = new SqlCommand(query, conn))
+                {
+                    command.Parameters.AddWithValue("@Id", roomID);
+                    using (var reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            Room room = new Room(
+                                reader.GetInt32(reader.GetOrdinal("ID")),
+                                reader.GetString(reader.GetOrdinal("Name")),
+                                reader.GetString(reader.GetOrdinal("Description")),
+                                reader.GetString(reader.GetOrdinal("Image")),
+                                reader.GetInt32(reader.GetOrdinal("numberOfMembers")),
+                                reader.GetInt32(reader.GetOrdinal("numberOfBooks"))
+                            );
+                            return room;
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+                }
+            }
+        }
         private static bool EmailExists(string email)
         {
             var query = "SELECT COUNT(1) FROM [USER] WHERE email = @email";

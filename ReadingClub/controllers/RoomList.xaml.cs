@@ -1,4 +1,6 @@
-﻿using ReadingClub.models;
+﻿using ReadingClub.database;
+using ReadingClub.models;
+using ReadingClub.utils.shared;
 using System.Windows.Controls;
 
 namespace ReadingClub.Controllers
@@ -8,7 +10,7 @@ namespace ReadingClub.Controllers
     /// </summary>
     public partial class RoomList : UserControl
     {
-        public event EventHandler RoomNavigateButtonClicked;
+        public event EventHandler<RoomEventArgs> RoomNavigateButtonClicked;
         private List<Room> rooms = new List<Room>();
         public RoomList()
         {
@@ -20,7 +22,7 @@ namespace ReadingClub.Controllers
         private void LoadRooms()
         {
             // This will be replaced by the rooms saved in the database
-            rooms = new List<Room>
+            /*rooms = new List<Room>
             {
                 new Room(1, "Fantasy", "Enter Mystic Haven, a cozy chamber where fantasy becomes reality. " +
                 "Surrounded by walls depicting mythical creatures and enchanted forests, " +
@@ -33,7 +35,9 @@ namespace ReadingClub.Controllers
                 "Dim lighting and shadowy corners create a mysterious atmosphere, " +
                 "perfect for anyone who loves piecing together clues and solving enigmas. " +
                 "It's like stepping into your favorite whodunit story.", "mystery.jpg", 80, 10),
-            };
+            };*/
+
+            rooms = DatabaseHelper.GetRooms();
         }
 
         private void PopulateRooms()
@@ -44,7 +48,7 @@ namespace ReadingClub.Controllers
                 roomControl.SetRoomData(room);
                 roomControl.NavigateButtonClicked += (sender, e) =>
                 {
-                    RoomNavigateButtonClicked?.Invoke(this, EventArgs.Empty);
+                    RoomNavigateButtonClicked?.Invoke(this, new RoomEventArgs(room.ID));
                 };
                 roomsList.Children.Add(roomControl);
             }

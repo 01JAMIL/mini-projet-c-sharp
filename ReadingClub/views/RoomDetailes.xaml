@@ -7,35 +7,44 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="1372"
              HorizontalAlignment="Stretch">
-    <Grid>
-        <Image x:Name="roomImage" HorizontalAlignment="Left" Height="160" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" Source="/assets/images/gn.jpg" Stretch="Fill"/>
-        <TextBlock x:Name="roomName" HorizontalAlignment="Left" Margin="150,10,0,0" FontSize="16" FontFamily="../assets/fonts/#Poppins Bold"  TextWrapping="Wrap" Text="Lorem Ipsum" VerticalAlignment="Top" Foreground="#FF6768"/>
-        <TextBlock 
-            x:Name="roomDescription" 
-            Text="Lorem ipsum dolor sit a met, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore agna aliqua. " 
-            HorizontalAlignment="Left" 
-            FontSize="12" 
-            FontFamily="../assets/fonts/#Poppins Regular" 
-            Margin="150,39,0,0" 
-            VerticalAlignment="Top" 
-            Foreground="#FFF" 
-            Padding="0,0,0,0" 
-            Width="532" 
-            Height="80" 
-            TextAlignment="Justify"
-            TextWrapping="Wrap" 
-            TextTrimming="CharacterEllipsis"
-        />
-        <TextBlock x:Name="roomMembersNumber" HorizontalAlignment="Left" Margin="150,124,0,0" FontSize="12" FontFamily="../assets/fonts/#Poppins Regular"  TextWrapping="Wrap" Text="Lorem Ipsum" VerticalAlignment="Top" Foreground="#FFF"/>
-        <TextBlock x:Name="roomBooksNumber" HorizontalAlignment="Left" Margin="150,146,0,0" FontSize="12" FontFamily="../assets/fonts/#Poppins Regular"  TextWrapping="Wrap" Text="Lorem Ipsum" VerticalAlignment="Top" Foreground="#FFF"/>
-        <Button 
-            x:Name="joinButton" 
-            Width="85" 
-            Content="Join room" FontFamily="../assets/fonts/#Poppins Regular" 
-            Padding="10,4,10,4" HorizontalAlignment="Left" 
-            Margin="1277,78,0,0" VerticalAlignment="Top" 
-            Background="#FF22C55E" Foreground="White" 
-            BorderBrush="#FF22C55E" FontSize="10" Cursor="Hand"
-        />
-    </Grid>
+    <StackPanel>
+        <Button Width="60"  Height="35" Content="Back" HorizontalAlignment="Left" Margin="10,10,10,10" FontFamily="../assets/fonts/#Poppins Bold" Background="#FF6768" Cursor="Hand" Foreground="#FFF" Click="GoBack"/>
+
+        <Grid>
+            <Image x:Name="roomImage" HorizontalAlignment="Left" Height="160" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" Stretch="Fill"/>
+
+            <TextBlock x:Name="roomName" HorizontalAlignment="Left" Margin="144,10,0,0" FontSize="16" FontFamily="../assets/fonts/#Poppins Bold"  TextWrapping="Wrap" Text="Lorem Ipsum" VerticalAlignment="Top" Foreground="#FF6768"/>
+
+            <TextBlock 
+                x:Name="roomDescription" 
+                Text="Lorem ipsum dolor sit a met, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore agna aliqua." 
+                HorizontalAlignment="Left" 
+                FontSize="12" 
+                FontFamily="../assets/fonts/#Poppins Regular" 
+                Margin="144,39,0,0" 
+                VerticalAlignment="Top" 
+                Foreground="#FFF" 
+                Width="954" 
+                Height="80" 
+                TextAlignment="Justify"
+                TextWrapping="Wrap" 
+                TextTrimming="CharacterEllipsis"/>
+
+            <!-- Room Members Number -->
+            <TextBlock x:Name="roomMembersNumber" HorizontalAlignment="Left" Margin="144,124,0,0" FontSize="12" FontFamily="../assets/fonts/#Poppins Regular"  TextWrapping="Wrap" Text="Lorem Ipsum" VerticalAlignment="Top" Foreground="#FFF"/>
+
+            <!-- Room Books Number -->
+            <TextBlock x:Name="roomBooksNumber" HorizontalAlignment="Left" Margin="144,142,0,0" FontSize="12" FontFamily="../assets/fonts/#Poppins Regular"  TextWrapping="Wrap" Text="Lorem Ipsum" VerticalAlignment="Top" Foreground="#FFF"/>
+
+            <!-- Join Button -->
+            <Button 
+                x:Name="joinButton" 
+                Width="85" 
+                Content="Join room" FontFamily="../assets/fonts/#Poppins Regular" 
+                Height="35" HorizontalAlignment="Left" 
+                Margin="1277,69,0,0" VerticalAlignment="Top" 
+                Background="#FF22C55E" Foreground="White" 
+                BorderBrush="#FF22C55E" FontSize="12" Cursor="Hand"/>
+        </Grid>
+    </StackPanel>
 </UserControl>
