@@ -34,7 +34,14 @@
             </Grid>
 
         </Grid>
-        <Grid x:Name="outletGrid" Grid.Column="1" Margin="20,100,20,20">
+        <Grid Grid.Column="0" Uid="booksGrid" VerticalAlignment="Top" Margin="0,85,0,0" Height="660" >
+            <ScrollViewer VerticalScrollBarVisibility="Auto" VerticalAlignment="Top">
+                <UniformGrid x:Name="roomsList" Columns="1">
+                    
+                </UniformGrid>
+            </ScrollViewer>
+        </Grid>
+        <Grid x:Name="outletGrid" Grid.Column="1" Margin="20,100,20,20" Cursor="Hand">
         </Grid>
     </Grid>
 </Page>

@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="ReadingClub.Controllers.RoomCircle"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ReadingClub"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="100">
+    <Grid>
+        <Border Width="65" Height="65" CornerRadius="32.5" Cursor="Hand" BorderThickness="0" Margin="10" MouseUp="GoToRoom">
+            <Border.Background>
+                <ImageBrush x:Name="roomImage" Stretch="Fill"/>
+            </Border.Background>
+            <Border.ToolTip>
+                <ToolTip Placement="Right" VerticalOffset="10" HorizontalOffset="10" Background="Black" BorderBrush="Black" HasDropShadow="True">
+                    <Border  Background="Black" Padding="10" Cursor="Hand">
+                        <TextBlock x:Name="roomName" Text="Room Name Here" Foreground="White" FontSize="12" FontFamily="../assets/fonts/#Poppins Bold"/>
+                    </Border>
+                </ToolTip>
+            </Border.ToolTip>
+        </Border>
+    </Grid>
+</UserControl>

@@ -28,8 +28,14 @@
     <Compile Update="controllers\RoomDetailes.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="controllers\RoomCircle.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="views\RoomCircle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="views\BookControl.xaml">
       <SubType>Designer</SubType>
     </Page>

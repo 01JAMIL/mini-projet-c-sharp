@@ -18,7 +18,7 @@
             <Button Width="60"  Height="35" Content="Back" HorizontalAlignment="Left" Margin="10,10,10,10" FontFamily="../assets/fonts/#Poppins Bold" Background="#FF6768" Cursor="Hand" Foreground="#FFF" Click="GoBack"/>
 
             <Grid>
-                <Image x:Name="roomImage" HorizontalAlignment="Left" Height="160" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" Stretch="Fill"/>
+                <Image x:Name="roomImage" HorizontalAlignment="Left" Height="160" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" Stretch="Fill" Source="/views/scienceFiction.jpeg"/>
 
                 <TextBlock x:Name="roomName" HorizontalAlignment="Left" Margin="144,10,0,0" FontSize="18" FontFamily="../assets/fonts/#Poppins Bold"  TextWrapping="Wrap" Text="Lorem Ipsum" VerticalAlignment="Top" Foreground="#FF6768"/>
 

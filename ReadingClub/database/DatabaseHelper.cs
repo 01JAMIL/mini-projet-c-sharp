@@ -114,13 +114,19 @@ namespace ReadingClub.database{
             }
         }
 
-        public static List<Room> GetRooms ()
+        public static List<Room> GetRooms (int userId)
         {
             var rooms = new List<Room>();
-            var query = "SELECT * FROM [Room]";
+            var query = @"
+                SELECT r.* 
+                FROM [Room] r
+                LEFT JOIN [RoomUser] ru ON r.ID = ru.RoomID AND ru.UserID = @UserID
+                WHERE ru.RoomID IS NULL";
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@UserID", userId);
 
                 try
                 {
@@ -321,6 +327,56 @@ namespace ReadingClub.database{
                     return 0;
                 }
             }
+        }
+
+        public static List<Room> GetJoinedRooms(int userId)
+        {
+            List<Room> joinedRooms = new List<Room>();
+
+            // Define the SQL query to retrieve rooms
+            string query = @"
+        SELECT r.* 
+        FROM [Room] r
+        INNER JOIN [RoomUser] ru ON r.ID = ru.RoomID
+        WHERE ru.UserID = @UserID";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@UserID", userId);
+
+                    try
+                    {
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                // Create a new Room object from the row data
+                                
+                                Room room = new Room(
+                                    reader.GetInt32(reader.GetOrdinal("ID")),
+                                    reader.GetString(reader.GetOrdinal("Name")),
+                                    reader.GetString(reader.GetOrdinal("Description")),
+                                    reader.GetString(reader.GetOrdinal("Image")),
+                                    reader.GetInt32(reader.GetOrdinal("numberOfMembers")),
+                                    reader.GetInt32(reader.GetOrdinal("numberOfBooks"))
+                                );
+                                
+                                joinedRooms.Add(room);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("An error occurred while retrieving joined rooms: " + ex.Message);
+                    }
+                }
+            }
+
+            // Return the list of joined rooms
+            return joinedRooms;
         }
 
         private static bool EmailExists(string email)

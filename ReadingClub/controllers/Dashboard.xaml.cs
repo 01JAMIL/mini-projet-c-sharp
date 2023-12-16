@@ -1,4 +1,5 @@
-﻿using ReadingClub.models;
+﻿using ReadingClub.database;
+using ReadingClub.models;
 using ReadingClub.utils.shared;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,6 +13,7 @@ namespace ReadingClub.Controllers
     {
         private int layout = 1;
         private int selectedRoomId;
+        private List<Room> rooms = new List<Room>();
         public Dashboard(User user)
         {
             InitializeComponent();
@@ -20,6 +22,9 @@ namespace ReadingClub.Controllers
             LoadUserData();
 
             UpdateLayout();
+
+            LoadRooms();
+            PopulateRooms();
         }
 
         private void LoadUserData()
@@ -50,6 +55,26 @@ namespace ReadingClub.Controllers
                     roomDetails.BackButtonClicked += NavigateToRoomList;
                     outletGrid.Children.Add(roomDetails);
                     break;
+            }
+        }
+
+        private void LoadRooms()
+        {
+            rooms = DatabaseHelper.GetJoinedRooms(GlobalData.LoggedInUser.id);
+        }
+        private void PopulateRooms()
+        {
+            foreach (var room in rooms)
+            {
+                RoomCircle roomControl = new RoomCircle();
+                roomControl.SetRoomData(room);
+                roomControl.RoomClicked += (sender, e) =>
+                {
+                    selectedRoomId = room.ID;
+                    layout = 2;
+                    UpdateLayout();
+                };
+                roomsList.Children.Add(roomControl);
             }
         }
 

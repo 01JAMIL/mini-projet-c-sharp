@@ -21,23 +21,7 @@ namespace ReadingClub.Controllers
 
         private void LoadRooms()
         {
-            // This will be replaced by the rooms saved in the database
-            /*rooms = new List<Room>
-            {
-                new Room(1, "Fantasy", "Enter Mystic Haven, a cozy chamber where fantasy becomes reality. " +
-                "Surrounded by walls depicting mythical creatures and enchanted forests, " +
-                "this room is a sanctuary for dreamers and adventurers alike. " +
-                "A small library of fantasy classics invites you to immerse yourself in otherworldly tales, " +
-                "while the soft, mystical ambiance sets the perfect scene for a magical escape.", "gn.jpg", 120, 50),
-
-                new Room(2, "Mystery", "Noir Escape offers an intriguing, detective-themed experience. " +
-                "Its décor features vintage detective paraphernalia and classic mystery novels. " +
-                "Dim lighting and shadowy corners create a mysterious atmosphere, " +
-                "perfect for anyone who loves piecing together clues and solving enigmas. " +
-                "It's like stepping into your favorite whodunit story.", "mystery.jpg", 80, 10),
-            };*/
-
-            rooms = DatabaseHelper.GetRooms();
+            rooms = DatabaseHelper.GetRooms(GlobalData.LoggedInUser.id);
         }
 
         private void PopulateRooms()

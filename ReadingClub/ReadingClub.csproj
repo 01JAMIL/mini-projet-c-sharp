@@ -12,15 +12,21 @@
     <None Remove="assets\fonts\Font Awesome 6 Free Solid.otf" />
     <None Remove="assets\fonts\Poppins-Bold.ttf" />
     <None Remove="assets\fonts\Poppins-Regular.ttf" />
+    <None Remove="assets\images\fantasyRoom.jpg" />
     <None Remove="assets\images\gameOfThrones.jpeg" />
     <None Remove="assets\images\Goodomenscover.jpg" />
     <None Remove="assets\images\harryPotterSorcererStone.jpeg" />
+    <None Remove="assets\images\history.jpg" />
+    <None Remove="assets\images\scienceFiction.jpeg" />
     <None Remove="assets\images\theHobbit.jpeg" />
     <None Remove="views\book-club-removebg-preview.png" />
+    <None Remove="views\fantasyRoom.jpg" />
     <None Remove="views\gn.jpg" />
     <None Remove="views\Goodomenscover.jpg" />
     <None Remove="views\harryPotterSorcererStone.jpeg" />
+    <None Remove="views\history.jpg" />
     <None Remove="views\mystery.jpg" />
+    <None Remove="views\scienceFiction.jpeg" />
     <None Remove="views\theHobbit.jpeg" />
   </ItemGroup>
 
@@ -35,12 +41,15 @@
     <Resource Include="assets\fonts\Poppins-Bold.ttf" />
     <Resource Include="assets\fonts\Poppins-Regular.ttf" />
     <Resource Include="assets\images\book-club-removebg-preview.png" />
+    <Resource Include="assets\images\fantasyRoom.jpg" />
     <Resource Include="assets\images\gameOfThrones.jpeg" />
     <Resource Include="assets\images\Goodomenscover.jpg" />
     <Resource Include="assets\images\harryPotterSorcererStone.jpeg" />
+    <Resource Include="assets\images\history.jpg" />
     <Resource Include="assets\images\mystery.jpg" />
     <Resource Include="assets\images\gn.jpg" />
     <Resource Include="assets\images\Circe.jpeg" />
+    <Resource Include="assets\images\scienceFiction.jpeg" />
     <Resource Include="assets\images\theHobbit.jpeg" />
   </ItemGroup>
 
