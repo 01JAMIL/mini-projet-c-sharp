@@ -227,6 +227,102 @@ namespace ReadingClub.database{
 
             return books;
         }
+
+        public static void JoinRoom(int roomId, int userId)
+        {
+            var query = "INSERT INTO [RoomUser] (RoomID, UserID) VALUES (@RoomID, @UserID)";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+
+                command.Parameters.AddWithValue("@RoomID", roomId);
+                command.Parameters.AddWithValue("@UserID", userId);
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Cannot join room try again later !!!                      ", "Something went wrong!");
+                    Console.WriteLine("An error occurred: " + ex.Message);
+                }
+            }
+        }
+
+        public static bool IsUserInRoom(int roomId, int userId)
+        {
+            var query = "SELECT COUNT(*) FROM [RoomUser] WHERE RoomID = @RoomID AND UserID = @UserID";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@RoomID", roomId);
+                command.Parameters.AddWithValue("@UserID", userId);
+
+                try
+                {
+                    connection.Open();
+
+                    int count = Convert.ToInt32(command.ExecuteScalar());
+                    return count > 0;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Cannot check if user already joined this room try again later !!!", "Something went wrong!");
+                    Console.WriteLine("An error occurred: " + ex.Message);
+                    return false;
+                }
+            }
+        }
+
+
+        public static int RoomNumberOfBooks (int roomId)
+        {
+            var query = "SELECT COUNT(*) FROM [Book] WHERE RoomId = @RoomId";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@RoomId", roomId);
+                try 
+                { 
+                    connection.Open();
+                    int count = Convert.ToInt32(command.ExecuteScalar());
+                    return count;
+                } 
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Cannot get books count try again later !!!", "Something went wrong!");
+                    Console.WriteLine("An error occurred: " + ex.Message);
+                    return 0;
+                }
+            }
+        }
+
+        public static int RoomNumberOfMembers(int roomId)
+        {
+            var query = "SELECT COUNT(*) FROM [RoomUser] WHERE RoomID = @RoomId";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@RoomId", roomId);
+                try
+                {
+                    connection.Open();
+                    int count = Convert.ToInt32(command.ExecuteScalar());
+                    return count;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Cannot get members count try again later !!!", "Something went wrong!");
+                    Console.WriteLine("An error occurred: " + ex.Message);
+                    return 0;
+                }
+            }
+        }
+
         private static bool EmailExists(string email)
         {
             var query = "SELECT COUNT(1) FROM [USER] WHERE email = @email";

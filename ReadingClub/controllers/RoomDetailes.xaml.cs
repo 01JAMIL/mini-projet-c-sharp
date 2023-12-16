@@ -3,6 +3,7 @@ using ReadingClub.models;
 using ReadingClub.utils.shared;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace ReadingClub.Controllers
@@ -25,12 +26,28 @@ namespace ReadingClub.Controllers
         {
             this.RoomId = roomId;
             this.CurrentRoom = DatabaseHelper.GetRoomById(roomId);
-            GetBookList();
-            PopulateBooks();
+            bool isInRoom = DatabaseHelper.IsUserInRoom(roomId, GlobalData.LoggedInUser.id);
+            //MessageBox.Show("Your status is " + isInRoom.ToString() + "Room ID => " + roomId.ToString() + "User ID => " + GlobalData.LoggedInUser.id.ToString(), "STATUS");
+            
+            if (isInRoom)
+            {
+                GetBookList();
+                PopulateBooks();
+                joinButton.IsEnabled = false;
+                joinButtonText.Text = "Joined";
+                joinButtonIcon.Content = "\uf00c";
+                joinButtonText.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#17223B"));
+                joinButtonIcon.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#17223B"));
+            } else
+            {
+                joinButtonText.Text = "Join Room";
+                joinButtonIcon.Content = "\uF090";
+            }
+            
             roomName.Text = this.CurrentRoom.Name;
             roomDescription.Text = this.CurrentRoom.Description;
-            roomBooksNumber.Text = this.CurrentRoom.numberOfBooks.ToString() + "  Book (s)";
-            roomMembersNumber.Text = this.CurrentRoom.numberOfMembers.ToString() + "  Members (s)";
+            roomBooksNumber.Text = DatabaseHelper.RoomNumberOfBooks(roomId) + "  Book (s)";
+            roomMembersNumber.Text = DatabaseHelper.RoomNumberOfMembers(roomId) + "  Members (s)";
             try
             {
                 // Construct the full path for the image
@@ -53,16 +70,36 @@ namespace ReadingClub.Controllers
 
         private void PopulateBooks()
         {
+            booksList.Children.Clear();
             foreach (var room in this.Books)
             {
                 BookControl bookControl = new BookControl();
                 bookControl.SetBookData(room);
                 booksList.Children.Add(bookControl);
-                /*roomControl.NavigateButtonClicked += (sender, e) =>
-                {
-                    RoomNavigateButtonClicked?.Invoke(this, new RoomEventArgs(room.ID));
-                };*/
+            }
+        }
 
+        private void OnJoinButtonClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                DatabaseHelper.JoinRoom(this.RoomId, GlobalData.LoggedInUser.id);
+
+                joinButton.IsEnabled = false;
+                joinButtonText.Text = "Joined";
+                joinButtonIcon.Content = "\uf00c";
+                joinButtonText.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#17223B"));
+                joinButtonIcon.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#17223B"));
+
+
+                roomMembersNumber.Text = DatabaseHelper.RoomNumberOfMembers(this.RoomId) + "  Members (s)";
+
+                GetBookList();
+                PopulateBooks();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error joining room: " + ex.Message);
             }
         }
 

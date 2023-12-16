@@ -55,10 +55,10 @@
             Height="35" HorizontalAlignment="Left" 
             Margin="1245,69,0,0" VerticalAlignment="Top" 
             Background="#FF22C55E" Foreground="White" 
-            BorderBrush="#FF22C55E" FontSize="12" Cursor="Hand">
+            BorderBrush="#FF22C55E" FontSize="12" Cursor="Hand" Click="OnJoinButtonClick">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock HorizontalAlignment="Left" FontSize="14" FontFamily="../assets/fonts/#Poppins Regular" Margin="4,0,2,0"  TextWrapping="Wrap" Text="Join room" VerticalAlignment="Center" Foreground="#FFF"/>
-                        <Label Content="&#xF090;" FontSize="16" VerticalAlignment="Center" FontFamily="../assets/fonts/#Font Awesome 6 Free Solid" Foreground="#FFF" />
+                        <TextBlock x:Name="joinButtonText" HorizontalAlignment="Left" FontSize="14" FontFamily="../assets/fonts/#Poppins Regular" Margin="4,0,2,0"  TextWrapping="Wrap" Text="" VerticalAlignment="Center" Foreground="#FFF"/>
+                        <Label x:Name="joinButtonIcon" Content="" FontSize="16" VerticalAlignment="Center" FontFamily="../assets/fonts/#Font Awesome 6 Free Solid" Foreground="#FFF" />
                     </StackPanel>
                 </Button>
             </Grid>

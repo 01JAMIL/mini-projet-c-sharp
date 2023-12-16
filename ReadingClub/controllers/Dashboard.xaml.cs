@@ -10,13 +10,12 @@ namespace ReadingClub.Controllers
     /// </summary>
     public partial class Dashboard : Page
     {
-        private User loggedInUser;
         private int layout = 1;
         private int selectedRoomId;
         public Dashboard(User user)
         {
             InitializeComponent();
-            loggedInUser = user;
+            GlobalData.LoggedInUser = user;
 
             LoadUserData();
 
@@ -25,11 +24,11 @@ namespace ReadingClub.Controllers
 
         private void LoadUserData()
         {
-            if (loggedInUser != null)
+            if (GlobalData.LoggedInUser != null)
             {
-                fullNameTextBlock.Text = loggedInUser.firstName + " " + loggedInUser.lastName;
-                userNameTextBlock.Text = loggedInUser.username;
-                userFirstLetter.Text = loggedInUser.firstName.ToUpper().Substring(0, 1);
+                fullNameTextBlock.Text = GlobalData.LoggedInUser.firstName + " " + GlobalData.LoggedInUser.lastName;
+                userNameTextBlock.Text = GlobalData.LoggedInUser.username;
+                userFirstLetter.Text = GlobalData.LoggedInUser.firstName.ToUpper().Substring(0, 1);
             }
         }
 
