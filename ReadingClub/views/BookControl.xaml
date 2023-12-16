@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="ReadingClub.Controllers.BookControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ReadingClub"
+             mc:Ignorable="d" 
+             d:DesignWidth="480" Height="230">
+    <Grid Background="#6B778D" Margin="10">
+
+        <Image x:Name="bookImage" HorizontalAlignment="Left" Height="210" VerticalAlignment="Center" Width="140" Source="/views/gameOfThrones.jpeg" Stretch="Fill"/>
+        <TextBlock x:Name="bookName" HorizontalAlignment="Left" Margin="150,5,0,0" TextWrapping="Wrap" Foreground="#FF6768" FontFamily="../assets/fonts/#Poppins Bold" Text="Lorem Ipsum" VerticalAlignment="Top"/>
+        <TextBlock
+            x:Name="bookDescription"
+            HorizontalAlignment="Left" 
+            Margin="150,28,0,0" 
+            TextWrapping="Wrap" 
+            Foreground="#FFF" 
+            FontFamily="../assets/fonts/#Poppins Regular" 
+            Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor." 
+            VerticalAlignment="Top" Width="264" Height="115"
+            TextAlignment="Justify"
+            TextTrimming="CharacterEllipsis"/>
+        <TextBlock x:Name="bookAuthor" HorizontalAlignment="Left" Margin="150,148,0,0"  FontSize="10" FontFamily="../assets/fonts/#Poppins Regular"  Foreground="#FFF" TextWrapping="Wrap" Text="By Lorem Ipsum" VerticalAlignment="Top"/>
+        <TextBlock x:Name="bookLanguage" HorizontalAlignment="Left" Margin="150,166,0,0"  FontSize="10" FontFamily="../assets/fonts/#Poppins Regular"  Foreground="#FFF" TextWrapping="Wrap" Text="English" VerticalAlignment="Top"/>
+        <TextBlock x:Name="bookNumberOfPages" HorizontalAlignment="Left" Margin="150,185,0,0"  FontSize="10" FontFamily="../assets/fonts/#Poppins Regular"  Foreground="#FFF" TextWrapping="Wrap" Text="250 Pages" VerticalAlignment="Top"/>
+        <TextBlock x:Name="bookNumberOfLikes" HorizontalAlignment="Left" Margin="394,185,0,0"  FontSize="10" FontFamily="../assets/fonts/#Poppins Regular"  Foreground="#17223B" TextWrapping="Wrap" Text="122 Likes" VerticalAlignment="Top"/>
+        <Button Height="24" Margin="402,2,10,184" Background="#6B778D" BorderBrush="#6B778D" Cursor="Hand">
+            <Label Content="&#xf004;" FontSize="10" VerticalAlignment="Center" FontFamily="../assets/fonts/#Font Awesome 6 Free Solid" Foreground="#FFF" />
+        </Button>
+
+
+    </Grid>
+</UserControl>

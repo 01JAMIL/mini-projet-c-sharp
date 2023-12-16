@@ -39,3 +39,6 @@ D:\C#\MyProject\ReadingClub\ReadingClub\obj\Debug\net8.0-windows\views\RoomList.
 D:\C#\MyProject\ReadingClub\ReadingClub\obj\Debug\net8.0-windows\views\RoomList.baml
 D:\C#\MyProject\ReadingClub\ReadingClub\obj\Debug\net8.0-windows\views\RoomDetailes.g.cs
 D:\C#\MyProject\ReadingClub\ReadingClub\obj\Debug\net8.0-windows\views\RoomDetailes.baml
+D:\C#\MyProject\ReadingClub\ReadingClub\obj\Debug\net8.0-windows\views\BookControl.g.cs
+D:\C#\MyProject\ReadingClub\ReadingClub\obj\Debug\net8.0-windows\views\BookControl.baml
+D:\C#\MyProject\ReadingClub\ReadingClub\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs

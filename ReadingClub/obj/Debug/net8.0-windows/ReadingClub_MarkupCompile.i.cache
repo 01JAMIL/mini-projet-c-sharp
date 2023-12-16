@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 D:\C#\MyProject\ReadingClub\ReadingClub\App.xaml
-7684522030
+8769266760
 
-18-787057483
+20592641515
 199-1372062566
-views\Dashboard.xaml;views\MainWindow.xaml;views\RoomControl.xaml;views\RoomDetailes.xaml;views\RoomList.xaml;views\SignIn.xaml;views\SignUp.xaml;
+views\BookControl.xaml;views\Dashboard.xaml;views\MainWindow.xaml;views\RoomControl.xaml;views\RoomDetailes.xaml;views\RoomList.xaml;views\SignIn.xaml;views\SignUp.xaml;
 
-True
+False
 

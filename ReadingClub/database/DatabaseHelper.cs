@@ -184,6 +184,49 @@ namespace ReadingClub.database{
                 }
             }
         }
+
+        public static List<Book> GetBooks(int roomId)
+        {
+            var books = new List<Book>();
+            var query = "SELECT * FROM [Book] WHERE RoomId = @RoomId";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@RoomId", roomId);
+
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        var book = new Book(
+                            reader.GetInt32(reader.GetOrdinal("ID")),
+                            reader.GetString(reader.GetOrdinal("Name")),
+                            reader.GetString(reader.GetOrdinal("Description")),
+                            reader.GetString(reader.GetOrdinal("Image")),
+                            reader.GetString(reader.GetOrdinal("Language")),
+                            reader.GetString(reader.GetOrdinal("AuthorName")),
+                            reader.GetInt32(reader.GetOrdinal("NumberOfPages")),
+                            reader.GetInt32(reader.GetOrdinal("NumberOfLikes")),
+                            reader.GetInt32(reader.GetOrdinal("RoomId"))
+                        );
+
+                        books.Add(book);
+                    }
+
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+
+            return books;
+        }
         private static bool EmailExists(string email)
         {
             var query = "SELECT COUNT(1) FROM [USER] WHERE email = @email";

@@ -1,5 +1,6 @@
 ﻿using ReadingClub.database;
 using ReadingClub.models;
+using ReadingClub.utils.shared;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
@@ -14,15 +15,22 @@ namespace ReadingClub.Controllers
         public event EventHandler BackButtonClicked;
         public int RoomId { get; set; }
         private Room CurrentRoom;
+        private List<Book> Books;
+        public RoomDetailes()
+        {
+            InitializeComponent();
+        }
 
         public void SetRoomId(int roomId)
         {
             this.RoomId = roomId;
             this.CurrentRoom = DatabaseHelper.GetRoomById(roomId);
+            GetBookList();
+            PopulateBooks();
             roomName.Text = this.CurrentRoom.Name;
             roomDescription.Text = this.CurrentRoom.Description;
-            roomBooksNumber.Text = this.CurrentRoom.numberOfBooks.ToString();
-            roomMembersNumber.Text = this.CurrentRoom.numberOfMembers.ToString();
+            roomBooksNumber.Text = this.CurrentRoom.numberOfBooks.ToString() + "  Book (s)";
+            roomMembersNumber.Text = this.CurrentRoom.numberOfMembers.ToString() + "  Members (s)";
             try
             {
                 // Construct the full path for the image
@@ -37,9 +45,25 @@ namespace ReadingClub.Controllers
             }
 
         }
-        public RoomDetailes()
+
+        private void GetBookList ()
         {
-            InitializeComponent();
+            this.Books = DatabaseHelper.GetBooks(this.RoomId);
+        }
+
+        private void PopulateBooks()
+        {
+            foreach (var room in this.Books)
+            {
+                BookControl bookControl = new BookControl();
+                bookControl.SetBookData(room);
+                booksList.Children.Add(bookControl);
+                /*roomControl.NavigateButtonClicked += (sender, e) =>
+                {
+                    RoomNavigateButtonClicked?.Invoke(this, new RoomEventArgs(room.ID));
+                };*/
+
+            }
         }
 
         private void GoBack(object sender, RoutedEventArgs e)
