@@ -6,27 +6,27 @@
              xmlns:local="clr-namespace:ReadingClub"
              mc:Ignorable="d" d:DesignWidth="500" Height="180">
     <Grid Background="#6B778D" Width="500" Height="170" Margin="0,0,0,10">
-        <Image x:Name="roomImage" HorizontalAlignment="Left" Margin="10,6,0,49" Width="85" Source="/assets/images/gn.jpg" Stretch="Fill"/>
-        <Label x:Name="roomName" Content="Lorem Ipsum" HorizontalAlignment="Left" FontSize="16" FontFamily="../assets/fonts/#Poppins Bold" Margin="106,6,0,0" VerticalAlignment="Top" Foreground="#FFFF6768" Padding="0,0,0,0" Width="384"/>
+        <Image x:Name="roomImage" HorizontalAlignment="Left" Margin="10,6,0,49" Width="100" Source="/assets/images/gn.jpg" Stretch="Fill"/>
+        <Label x:Name="roomName" Content="Lorem Ipsum" HorizontalAlignment="Left" FontSize="16" FontFamily="../assets/fonts/#Poppins Bold" Margin="120,6,0,0" VerticalAlignment="Top" Foreground="#FFFF6768" Padding="0,0,0,0" Width="357"/>
         <TextBlock 
             x:Name="roomDescription" 
             Text="Lorem ipsum dolor sit a met, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore agna aliqua. " 
             HorizontalAlignment="Left" 
             FontSize="12" 
             FontFamily="../assets/fonts/#Poppins Regular" 
-            Margin="106,41,0,0" 
+            Margin="120,35,0,0" 
             VerticalAlignment="Top" 
             Foreground="#FFF" 
             Padding="0,0,0,0" 
-            Width="384" 
-            Height="80" 
+            Width="370" 
+            Height="94" 
             TextAlignment="Justify"
             TextWrapping="Wrap" 
             TextTrimming="CharacterEllipsis"
             />
         <Button 
             x:Name="joinButton" 
-            Width="85" 
+            Width="100" 
             Content="View room" FontFamily="../assets/fonts/#Poppins Regular" 
             Height="35" HorizontalAlignment="Left" 
             Margin="10,129,0,0" VerticalAlignment="Top" 

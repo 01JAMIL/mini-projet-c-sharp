@@ -53,6 +53,11 @@ namespace ReadingClub.Controllers
                     var roomDetails = new RoomDetailes();
                     roomDetails.SetRoomId(selectedRoomId);
                     roomDetails.BackButtonClicked += NavigateToRoomList;
+                    roomDetails.RoomJoined += (sender, e) =>
+                    {
+                        LoadRooms();
+                        PopulateRooms();
+                    };
                     outletGrid.Children.Add(roomDetails);
                     break;
             }
@@ -64,6 +69,7 @@ namespace ReadingClub.Controllers
         }
         private void PopulateRooms()
         {
+            roomsList.Children.Clear();
             foreach (var room in rooms)
             {
                 RoomCircle roomControl = new RoomCircle();

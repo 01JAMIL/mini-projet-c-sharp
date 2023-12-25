@@ -14,6 +14,7 @@ namespace ReadingClub.Controllers
     public partial class RoomDetailes : UserControl
     {
         public event EventHandler BackButtonClicked;
+        public event EventHandler RoomJoined;
         public int RoomId { get; set; }
         private Room CurrentRoom;
         private List<Book> Books;
@@ -96,6 +97,8 @@ namespace ReadingClub.Controllers
 
                 GetBookList();
                 PopulateBooks();
+
+                RoomJoined?.Invoke(this, EventArgs.Empty);
             }
             catch (Exception ex)
             {
