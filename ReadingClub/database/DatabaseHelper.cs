@@ -7,7 +7,7 @@ using System.Windows;
 namespace ReadingClub.database{
     class DatabaseHelper {
         
-        private static string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=reading_club_db;Integrated Security=True;Connect Timeout=30;Encrypt=False";
+        private static string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ReadingClub;Integrated Security=True;Connect Timeout=30;Encrypt=False";
         public static AuthActionResult SignUp (User user)
         {
             if (EmailExists(user.email))
@@ -209,6 +209,52 @@ namespace ReadingClub.database{
                     while (reader.Read())
                     {
                         var book = new Book(
+                    reader.GetInt32(reader.GetOrdinal("ID")),
+                    reader.GetString(reader.GetOrdinal("Name")),
+                    reader.GetString(reader.GetOrdinal("Description")),
+                    reader.GetString(reader.GetOrdinal("Image")),
+                    reader.GetString(reader.GetOrdinal("Language")),
+                    reader.GetString(reader.GetOrdinal("AuthorName")),
+                    reader.GetInt32(reader.GetOrdinal("NumberOfPages")),
+                    reader.GetInt32(reader.GetOrdinal("NumberOfLikes")),
+                    reader.GetInt32(reader.GetOrdinal("RoomId")),
+                    reader.GetBoolean(reader.GetOrdinal("Favorite")),
+                    reader.GetBoolean(reader.GetOrdinal("CurrentlyReading")),
+                    reader.GetBoolean(reader.GetOrdinal("WantToRead"))
+                );
+
+                        books.Add(book);
+                    }
+
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+
+            return books;
+        }
+
+
+        public static List<Book> GetAllBooks()
+        {
+            var books = new List<Book>();
+            var query = "SELECT * FROM [Book]";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        var book = new Book(
                             reader.GetInt32(reader.GetOrdinal("ID")),
                             reader.GetString(reader.GetOrdinal("Name")),
                             reader.GetString(reader.GetOrdinal("Description")),
@@ -217,7 +263,10 @@ namespace ReadingClub.database{
                             reader.GetString(reader.GetOrdinal("AuthorName")),
                             reader.GetInt32(reader.GetOrdinal("NumberOfPages")),
                             reader.GetInt32(reader.GetOrdinal("NumberOfLikes")),
-                            reader.GetInt32(reader.GetOrdinal("RoomId"))
+                            reader.GetInt32(reader.GetOrdinal("RoomId")),
+                            reader.GetBoolean(reader.GetOrdinal("Favorite")),
+                            reader.GetBoolean(reader.GetOrdinal("CurrentlyReading")),
+                            reader.GetBoolean(reader.GetOrdinal("WantToRead"))
                         );
 
                         books.Add(book);
@@ -233,6 +282,27 @@ namespace ReadingClub.database{
 
             return books;
         }
+
+        public static void UpdateBookStatus(int bookId, bool wantToRead, bool currentlyReading, bool favorite)
+        {
+            var query = "UPDATE [Book] SET WantToRead = @WantToRead, CurrentlyReading = @CurrentlyReading, Favorite = @Favorite WHERE Id = @BookId";
+
+            using (var conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                using (var command = new SqlCommand(query, conn))
+                {
+                    command.Parameters.AddWithValue("@WantToRead", wantToRead);
+                    command.Parameters.AddWithValue("@CurrentlyReading", currentlyReading);
+                    command.Parameters.AddWithValue("@Favorite", favorite);
+                    command.Parameters.AddWithValue("@BookId", bookId);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
 
         public static void JoinRoom(int roomId, int userId)
         {

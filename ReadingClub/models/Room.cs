@@ -9,6 +9,7 @@ namespace ReadingClub.models
         public string Image {  get; set; }
         public int numberOfMembers { get; set; }
         public int numberOfBooks { get; set; }
+      
         public Room(int ID, string Name, string Description, string Image, int numberOfMembers, int numberOfBooks)
         {
             this.ID = ID;
@@ -17,6 +18,7 @@ namespace ReadingClub.models
             this.Image = Image;
             this.numberOfMembers = numberOfMembers;
             this.numberOfBooks = numberOfBooks;
+           
         }
 
     }

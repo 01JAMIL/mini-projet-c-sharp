@@ -30,9 +30,21 @@
                 <SolidColorBrush Color="#FF6B778D" Opacity="0.24"/>
             </Grid.Background>
 
+            <Button  
+                x:Name="MyLIST"
+                Width="270"
+                Height="30"
+                VerticalAlignment="Top"
+                 Margin="0,15,0,15"
+                Background="#806e62" Foreground="White"
+                BorderBrush="#806e62" FontSize="20" Cursor="Hand"
+                Content="My List" FontFamily="../assets/fonts/#Poppins Regular"
+                Click="OnClickViewList"
+                />
+
             <!-- TextBlock -->
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top"
-               Margin="0,15,0,0" Width="270" Padding="0,10,0,10"  FontFamily="../assets/fonts/#Poppins Bold" 
+               Margin="0,50,0,0" Width="270" Padding="0,10,0,10"  FontFamily="../assets/fonts/#Poppins Bold" 
                TextWrapping="Wrap" Text="Reading in progress" TextAlignment="Center" Background="#FF6B778D" Foreground="White"/>
 
         </Grid>

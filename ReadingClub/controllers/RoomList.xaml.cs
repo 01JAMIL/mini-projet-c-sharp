@@ -1,7 +1,9 @@
 ﻿using ReadingClub.database;
 using ReadingClub.models;
 using ReadingClub.utils.shared;
+using System.Windows;
 using System.Windows.Controls;
+
 
 namespace ReadingClub.Controllers
 {
@@ -10,6 +12,7 @@ namespace ReadingClub.Controllers
     /// </summary>
     public partial class RoomList : UserControl
     {
+      
         public event EventHandler<RoomEventArgs> RoomNavigateButtonClicked;
         private List<Room> rooms = new List<Room>();
         public RoomList()
@@ -37,5 +40,19 @@ namespace ReadingClub.Controllers
                 roomsList.Children.Add(roomControl);
             }
         }
+
+
+        private void OnClickViewList(object sender, RoutedEventArgs e)
+        {
+            // Assuming that your UserControl is hosted within a Window
+            Window parentWindow = Window.GetWindow(this);
+
+            if (parentWindow != null)
+            {
+                // Navigate to MyList page
+                parentWindow.Content = new MyList();
+            }
+        }
+
     }
 }

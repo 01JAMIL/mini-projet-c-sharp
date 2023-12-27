@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\C#\\MyProject\\ReadingClub\\ReadingClub\\ReadingClub.csproj": {}
+    "C:\\Users\\bensa\\mini-project-c-sharp\\mini-project-c-sharp\\ReadingClub\\ReadingClub.csproj": {}
   },
   "projects": {
-    "D:\\C#\\MyProject\\ReadingClub\\ReadingClub\\ReadingClub.csproj": {
+    "C:\\Users\\bensa\\mini-project-c-sharp\\mini-project-c-sharp\\ReadingClub\\ReadingClub.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C#\\MyProject\\ReadingClub\\ReadingClub\\ReadingClub.csproj",
+        "projectUniqueName": "C:\\Users\\bensa\\mini-project-c-sharp\\mini-project-c-sharp\\ReadingClub\\ReadingClub.csproj",
         "projectName": "ReadingClub",
-        "projectPath": "D:\\C#\\MyProject\\ReadingClub\\ReadingClub\\ReadingClub.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "D:\\C#\\MyProject\\ReadingClub\\ReadingClub\\obj\\",
+        "projectPath": "C:\\Users\\bensa\\mini-project-c-sharp\\mini-project-c-sharp\\ReadingClub\\ReadingClub.csproj",
+        "packagesPath": "C:\\Users\\bensa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bensa\\mini-project-c-sharp\\mini-project-c-sharp\\ReadingClub\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\bensa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

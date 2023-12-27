@@ -25,9 +25,61 @@
         <TextBlock x:Name="bookLanguage" HorizontalAlignment="Left" Margin="150,166,0,0"  FontSize="10" FontFamily="../assets/fonts/#Poppins Regular"  Foreground="#FFF" TextWrapping="Wrap" Text="English" VerticalAlignment="Top"/>
         <TextBlock x:Name="bookNumberOfPages" HorizontalAlignment="Left" Margin="150,185,0,0"  FontSize="10" FontFamily="../assets/fonts/#Poppins Regular"  Foreground="#FFF" TextWrapping="Wrap" Text="250 Pages" VerticalAlignment="Top"/>
         <TextBlock x:Name="bookNumberOfLikes" HorizontalAlignment="Left" Margin="394,185,0,0"  FontSize="10" FontFamily="../assets/fonts/#Poppins Regular"  Foreground="#17223B" TextWrapping="Wrap" Text="122 Likes" VerticalAlignment="Top"/>
-        <Button Height="24" Margin="402,2,10,184" Background="#6B778D" BorderBrush="#6B778D" Cursor="Hand">
-            <Label Content="&#xf004;" FontSize="10" VerticalAlignment="Center" FontFamily="../assets/fonts/#Font Awesome 6 Free Solid" Foreground="#FFF" />
-        </Button>
+        
+        
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
+            
+            
+            <Button
+                x:Name="AddButton"
+                Width="22" 
+                Height="22"
+                Margin="2" 
+                Background="#6B778D" 
+                BorderBrush="#6B778D"
+                Click="OnClickAddButton" Tag="{Binding}">
+                
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/assets/images/add.png" Width="16" Height="16"/>
+                    
+                </StackPanel>
+            </Button>
+            
+            
+            <Button 
+                x:Name="ReadButton"
+                Width="22"
+                Height="22" 
+                Margin="2"
+                Background="#6B778D"
+                BorderBrush="#6B778D"
+                Click="OnClickReadButton"
+                >
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/assets/images/eye.png" Width="16" Height="16" />
+                   
+                </StackPanel>
+            </Button>
+            
+            
+            
+            <Button 
+                x:Name="FavButton"
+                Width="22"
+                Height="22"
+                Margin="2"
+                Background="#6B778D"
+                BorderBrush="#6B778D"
+                Click="OnClickFavButton"
+                >
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/assets/images/heart.png" Width="16" Height="16"/>
+                    
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+
 
 
     </Grid>

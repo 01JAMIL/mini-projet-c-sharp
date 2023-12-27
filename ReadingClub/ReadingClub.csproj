@@ -12,10 +12,14 @@
     <None Remove="assets\fonts\Font Awesome 6 Free Solid.otf" />
     <None Remove="assets\fonts\Poppins-Bold.ttf" />
     <None Remove="assets\fonts\Poppins-Regular.ttf" />
+    <None Remove="assets\images\add.png" />
+    <None Remove="assets\images\bookmark.png" />
+    <None Remove="assets\images\eye.png" />
     <None Remove="assets\images\fantasyRoom.jpg" />
     <None Remove="assets\images\gameOfThrones.jpeg" />
     <None Remove="assets\images\Goodomenscover.jpg" />
     <None Remove="assets\images\harryPotterSorcererStone.jpeg" />
+    <None Remove="assets\images\heart.png" />
     <None Remove="assets\images\history.jpg" />
     <None Remove="assets\images\scienceFiction.jpeg" />
     <None Remove="assets\images\theHobbit.jpeg" />
@@ -40,11 +44,23 @@
     </Resource>
     <Resource Include="assets\fonts\Poppins-Bold.ttf" />
     <Resource Include="assets\fonts\Poppins-Regular.ttf" />
+    <Resource Include="assets\images\add.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="assets\images\book-club-removebg-preview.png" />
+    <Resource Include="assets\images\bookmark.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="assets\images\eye.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="assets\images\fantasyRoom.jpg" />
     <Resource Include="assets\images\gameOfThrones.jpeg" />
     <Resource Include="assets\images\Goodomenscover.jpg" />
     <Resource Include="assets\images\harryPotterSorcererStone.jpeg" />
+    <Resource Include="assets\images\heart.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="assets\images\history.jpg" />
     <Resource Include="assets\images\mystery.jpg" />
     <Resource Include="assets\images\gn.jpg" />

@@ -31,8 +31,14 @@
     <Compile Update="controllers\RoomCircle.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="controllers\MyList.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="views\MyList.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="views\RoomCircle.xaml">
       <SubType>Designer</SubType>
     </Page>

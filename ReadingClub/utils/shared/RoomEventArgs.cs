@@ -8,4 +8,15 @@
             RoomId = roomId;
         }
     }
+
+    public class BookEventArgs : EventArgs
+    {
+        public int BookId { get; }
+
+        public BookEventArgs(int bookId)
+        {
+            BookId = bookId;
+        }
+    }
+
 }

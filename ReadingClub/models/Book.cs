@@ -17,8 +17,11 @@ namespace ReadingClub.models
         public int NumberOfPages { get; set; }
         public int NumberOfLikes { get; set; }
         public int RoomId { get; set; }
+        public bool Favorite { get; set; }
+        public bool CurrentlyReading { get; set; }
+        public bool WantToRead { get; set; }
 
-        public Book (int id, string name, string description, string image, string language, string authorName, int numberOfPages, int numberOfLikes, int roomId)
+        public Book (int id, string name, string description, string image, string language, string authorName, int numberOfPages, int numberOfLikes, int roomId, bool favorite, bool currentlyReading, bool wantToRead)
         {
             ID = id;
             Name = name;
@@ -29,6 +32,9 @@ namespace ReadingClub.models
             NumberOfPages = numberOfPages;
             NumberOfLikes = numberOfLikes;
             RoomId = roomId;
+            Favorite = favorite;
+            CurrentlyReading = currentlyReading;
+            WantToRead = wantToRead;
         }
     }
 }
