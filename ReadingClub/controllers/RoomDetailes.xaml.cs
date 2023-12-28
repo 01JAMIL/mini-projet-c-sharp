@@ -72,10 +72,10 @@ namespace ReadingClub.Controllers
         private void PopulateBooks()
         {
             booksList.Children.Clear();
-            foreach (var room in this.Books)
+            foreach (var book in this.Books)
             {
                 BookControl bookControl = new BookControl();
-                bookControl.SetBookData(room);
+                bookControl.SetBookData(book);
                 booksList.Children.Add(bookControl);
             }
         }

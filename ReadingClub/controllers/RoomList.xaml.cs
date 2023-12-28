@@ -12,7 +12,7 @@ namespace ReadingClub.Controllers
     /// </summary>
     public partial class RoomList : UserControl
     {
-      
+        public event EventHandler BackButtonClicked;
         public event EventHandler<RoomEventArgs> RoomNavigateButtonClicked;
         private List<Room> rooms = new List<Room>();
         public RoomList()
@@ -45,13 +45,15 @@ namespace ReadingClub.Controllers
         private void OnClickViewList(object sender, RoutedEventArgs e)
         {
             // Assuming that your UserControl is hosted within a Window
-            Window parentWindow = Window.GetWindow(this);
+            /*Window parentWindow = Window.GetWindow(this);
 
             if (parentWindow != null)
             {
                 // Navigate to MyList page
                 parentWindow.Content = new MyList();
-            }
+            }*/
+
+            BackButtonClicked?.Invoke(sender, EventArgs.Empty);
         }
 
     }

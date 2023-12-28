@@ -57,6 +57,9 @@ namespace ReadingClub.Controllers
             {
                 BookControl bookControl = new BookControl();
                 bookControl.SetBookData(book);
+                bookControl.AddButtonClicked += OnBookControlAddButtonClicked;
+                bookControl.ReadButtonClicked += OnBookControlAddButtonClicked;
+                bookControl.FavButtonClicked += OnBookControlAddButtonClicked;
                 WantToReadList.Children.Add(bookControl);
             }
         }
@@ -68,6 +71,9 @@ namespace ReadingClub.Controllers
             {
                 BookControl bookControl = new BookControl();
                 bookControl.SetBookData(book);
+                bookControl.AddButtonClicked += OnBookControlAddButtonClicked;
+                bookControl.ReadButtonClicked += OnBookControlAddButtonClicked;
+                bookControl.FavButtonClicked += OnBookControlAddButtonClicked;
                 CurrentlyReadingList.Items.Add(bookControl);
             }
         }
@@ -79,18 +85,25 @@ namespace ReadingClub.Controllers
             {
                 BookControl bookControl = new BookControl();
                 bookControl.SetBookData(book);
+                bookControl.AddButtonClicked += OnBookControlAddButtonClicked;
+                bookControl.ReadButtonClicked += OnBookControlAddButtonClicked;
+                bookControl.FavButtonClicked += OnBookControlAddButtonClicked;
                 FavoritesList.Items.Add(bookControl);
             }
         }
 
+        private void OnBookControlAddButtonClicked(object sender, BookEventArgs e)
+        {
+            DataContext = this;
+            GetBookList();
+            PopulateWantToReadBooks();
+            PopulateCurrentlyReadingBooks();
+            PopulateFavoriteBooks();
+        }
 
         private void GoBack(object sender, RoutedEventArgs e)
         {
-            // Trigger the event
             GoBackButtonClicked?.Invoke(this, EventArgs.Empty);
-        }
-
-
-        
+        }   
     }
 }

@@ -23,6 +23,7 @@ namespace ReadingClub.Controllers
     /// </summary>
     public partial class BookControl : UserControl
     {
+        public event EventHandler UpdateBookLists;
         public event EventHandler<BookEventArgs> AddButtonClicked;
         public event EventHandler<BookEventArgs> ReadButtonClicked;
         public event EventHandler<BookEventArgs> FavButtonClicked;
@@ -37,7 +38,6 @@ namespace ReadingClub.Controllers
             BookData = book;
             bookName.Text = book.Name;
             bookDescription.Text = book.Description;
-            bookNumberOfLikes.Text = book.NumberOfLikes.ToString() + " Like (s)";
             bookAuthor.Text = "By " + book.AuthorName;
             bookNumberOfPages.Text = book.NumberOfPages.ToString() + " Pages"; 
 
@@ -62,7 +62,8 @@ namespace ReadingClub.Controllers
             UpdateBookStatusInDatabase(BookData);
 
             AddButtonClicked?.Invoke(this, new BookEventArgs(BookData.ID));
-
+            NotifyListUpdated();
+            MessageBox.Show("The book has been added to your Want to Read list!     ", "Book Added", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         public void OnClickReadButton(object sender, RoutedEventArgs e)
@@ -74,7 +75,8 @@ namespace ReadingClub.Controllers
             UpdateBookStatusInDatabase(BookData);
 
             ReadButtonClicked?.Invoke(this, new BookEventArgs(BookData.ID));
-
+            NotifyListUpdated();
+            MessageBox.Show("You've started reading this book! It's now in your Currently Reading list.     ", "Book Added", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         public void OnClickFavButton(object sender, RoutedEventArgs e)
@@ -86,7 +88,13 @@ namespace ReadingClub.Controllers
             UpdateBookStatusInDatabase(BookData);
 
             FavButtonClicked?.Invoke(this, new BookEventArgs(BookData.ID));
+            NotifyListUpdated();
+            MessageBox.Show("This book has been added to your Favorites!     ", "Book Added", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
 
+        private void NotifyListUpdated()
+        {
+            UpdateBookLists?.Invoke(this, EventArgs.Empty);
         }
 
         private void UpdateBookStatusInDatabase(Book book)
@@ -101,9 +109,5 @@ namespace ReadingClub.Controllers
                 Console.WriteLine("Error updating book status in the database: " + ex.Message);
             }
         }
-
-
-
-
     }
 }

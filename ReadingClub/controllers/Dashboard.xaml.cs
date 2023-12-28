@@ -46,6 +46,7 @@ namespace ReadingClub.Controllers
                 case 1:
                     var roomList = new RoomList();
                     roomList.RoomNavigateButtonClicked += new EventHandler<RoomEventArgs>(NavigateToRoomDetails);
+                    roomList.BackButtonClicked += NavigateToMyList;
                     outletGrid.Children.Add(roomList);
                     break;
 
@@ -60,6 +61,13 @@ namespace ReadingClub.Controllers
                     };
                     outletGrid.Children.Add(roomDetails);
                     break;
+                case 3:
+                    var myList = new MyList();
+                    myList.GoBackButtonClicked += NavigateToRoomList;
+                    outletGrid.Children.Add(myList);
+                    break;
+                
+                default: break;
             }
         }
 
@@ -94,6 +102,12 @@ namespace ReadingClub.Controllers
         private void NavigateToRoomList(object sender, EventArgs e)
         {
             this.layout = 1;
+            UpdateLayout();
+        }
+
+        private void NavigateToMyList(object sender, EventArgs e)
+        {
+            this.layout = 3;
             UpdateLayout();
         }
     }

@@ -91,3 +91,6 @@ C:\Users\bensa\mini-project-c-sharp\mini-project-c-sharp\ReadingClub\obj\Debug\n
 C:\Users\bensa\mini-project-c-sharp\mini-project-c-sharp\ReadingClub\obj\Debug\net8.0-windows\ReadingClub.genruntimeconfig.cache
 C:\Users\bensa\mini-project-c-sharp\mini-project-c-sharp\ReadingClub\obj\Debug\net8.0-windows\ref\ReadingClub.dll
 C:\Users\bensa\mini-project-c-sharp\mini-project-c-sharp\ReadingClub\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
+D:\C#\MyProject\ReadingClub\ReadingClub\obj\Debug\net8.0-windows\views\MyList.g.cs
+D:\C#\MyProject\ReadingClub\ReadingClub\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
+D:\C#\MyProject\ReadingClub\ReadingClub\obj\Debug\net8.0-windows\views\MyList.baml

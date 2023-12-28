@@ -6,8 +6,8 @@ using System.Windows;
 
 namespace ReadingClub.database{
     class DatabaseHelper {
-        
-        private static string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ReadingClub;Integrated Security=True;Connect Timeout=30;Encrypt=False";
+
+        private static string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=reading_club_db;Integrated Security=True;Connect Timeout=30;Encrypt=False";
         public static AuthActionResult SignUp (User user)
         {
             if (EmailExists(user.email))

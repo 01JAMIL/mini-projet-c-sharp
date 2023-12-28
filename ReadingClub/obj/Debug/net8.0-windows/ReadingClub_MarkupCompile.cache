@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\bensa\mini-project-c-sharp\mini-project-c-sharp\ReadingClub\obj\Debug\net8.0-windows\
+D:\C#\MyProject\ReadingClub\ReadingClub\obj\Debug\net8.0-windows\
 ReadingClub
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\bensa\mini-project-c-sharp\mini-project-c-sharp\ReadingClub\App.xaml
+D:\C#\MyProject\ReadingClub\ReadingClub\App.xaml
 10-357282499
 
 21266300988
-199-714115220
+199-1372062566
 views\BookControl.xaml;views\Dashboard.xaml;views\MainWindow.xaml;views\MyList.xaml;views\RoomCircle.xaml;views\RoomControl.xaml;views\RoomDetailes.xaml;views\RoomList.xaml;views\SignIn.xaml;views\SignUp.xaml;
 
 False

@@ -24,8 +24,6 @@
         <TextBlock x:Name="bookAuthor" HorizontalAlignment="Left" Margin="150,148,0,0"  FontSize="10" FontFamily="../assets/fonts/#Poppins Regular"  Foreground="#FFF" TextWrapping="Wrap" Text="By Lorem Ipsum" VerticalAlignment="Top"/>
         <TextBlock x:Name="bookLanguage" HorizontalAlignment="Left" Margin="150,166,0,0"  FontSize="10" FontFamily="../assets/fonts/#Poppins Regular"  Foreground="#FFF" TextWrapping="Wrap" Text="English" VerticalAlignment="Top"/>
         <TextBlock x:Name="bookNumberOfPages" HorizontalAlignment="Left" Margin="150,185,0,0"  FontSize="10" FontFamily="../assets/fonts/#Poppins Regular"  Foreground="#FFF" TextWrapping="Wrap" Text="250 Pages" VerticalAlignment="Top"/>
-        <TextBlock x:Name="bookNumberOfLikes" HorizontalAlignment="Left" Margin="394,185,0,0"  FontSize="10" FontFamily="../assets/fonts/#Poppins Regular"  Foreground="#17223B" TextWrapping="Wrap" Text="122 Likes" VerticalAlignment="Top"/>
-        
         
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
             
